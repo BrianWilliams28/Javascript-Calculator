@@ -1,0 +1,327 @@
+$( document ).ready(function() {  
+const output = document.getElementById("output");
+const onBtn = document.getElementById("AC");
+const clearBtn = document.getElementById("CE");
+const percentBtn = document.getElementById("percent");
+const divideBtn = document.getElementById("divide");
+const sevenBtn = document.getElementById("seven");  
+const eightBtn = document.getElementById("eight"); 
+const nineBtn = document.getElementById("nine");
+const multiplyBtn = document.getElementById("multiply");
+const fourBtn = document.getElementById("four");  
+const fiveBtn = document.getElementById("five");
+const sixBtn = document.getElementById("six"); 
+const minusBtn = document.getElementById("minus");
+const oneBtn = document.getElementById("one");
+const twoBtn = document.getElementById("two");
+const threeBtn = document.getElementById("three");
+const plusBtn = document.getElementById("plus");
+const zeroBtn = document.getElementById("zero");
+const decimalBtn = document.getElementById("decimal");
+const equalBtn = document.getElementById("equal");
+  
+const displayValue = document.getElementById("display"); 
+let memory;
+let currentValue;
+let memoryArr = [];
+let mathOperator = false;
+let operatorValue;  
+let clickCount = 0;   
+  
+  // function to determine how memory array will be manipulated
+ function evaluateArr(operator, arr) {
+  let result = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    switch (operator) {
+      case "+":
+        result+=arr[i]
+        displayValue.innerHTML = result;
+        break;
+      case "-":
+        result-=arr[i];
+        displayValue.innerHTML = result;
+        break;
+    }
+  }
+}
+
+
+ /* button functions */ 
+const clear = function () {
+  displayValue.innerHTML = "0";
+  memoryArr = [];
+  clickCount = 0;
+};
+
+
+const addOne = function() {
+   if (mathOperator) {
+    displayValue.innerHTML = "1";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+     
+  } else if (displayValue.innerHTML === "0") {
+    displayValue.innerHTML = "1";
+    memory = Number(displayValue.innerHTML);
+  } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+   displayValue.innerHTML += "1";
+    memory = Number(displayValue.innerHTML);
+   
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)){
+    displayValue.innerHTML += "1";
+    memory = Number(displayValue.innerHTML);
+  }
+}
+
+const addTwo = function() {
+  if (mathOperator) {
+    displayValue.innerHTML = "2";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+     
+  } else if (displayValue.innerHTML === "0") {
+    displayValue.innerHTML = "2";
+    memory = Number(displayValue.innerHTML);
+  } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+   displayValue.innerHTML += "2";
+    memory = Number(displayValue.innerHTML);
+   
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)){
+    displayValue.innerHTML += "2";
+    memory = Number(displayValue.innerHTML);
+  }
+}
+
+const addThree = function() {
+   if (mathOperator) {
+    displayValue.innerHTML = "3";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+     
+  } else if (displayValue.innerHTML === "0") {
+    displayValue.innerHTML = "3";
+    memory = Number(displayValue.innerHTML);
+  } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+   displayValue.innerHTML += "3";
+    memory = Number(displayValue.innerHTML);
+   
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)){
+    displayValue.innerHTML += "3";
+    memory = Number(displayValue.innerHTML);
+  }
+}
+
+const addFour = function() {
+  if (mathOperator) {
+    displayValue.innerHTML = "4";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+     
+  } else if (displayValue.innerHTML === "0") {
+    displayValue.innerHTML = "4";
+    memory = Number(displayValue.innerHTML);
+  } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+   displayValue.innerHTML += "4";
+    memory = Number(displayValue.innerHTML);
+   
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)){
+    displayValue.innerHTML += "4";
+    memory = Number(displayValue.innerHTML);
+  }
+}
+
+const addFive = function() {
+  if (mathOperator) {
+    displayValue.innerHTML = "5";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+     
+  } else if (displayValue.innerHTML === "0") {
+    displayValue.innerHTML = "5";
+    memory = Number(displayValue.innerHTML);
+  } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+   displayValue.innerHTML += "5";
+   memory = Number(displayValue.innerHTML);
+   
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)){
+    displayValue.innerHTML += "5";
+    memory = Number(displayValue.innerHTML);
+  }
+}
+
+const addSix = function() {
+   if (mathOperator) {
+    displayValue.innerHTML = "6";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+     
+  } else if (displayValue.innerHTML === "0") {
+    displayValue.innerHTML = "6";
+    memory = Number(displayValue.innerHTML);
+  } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+   displayValue.innerHTML += "6";
+    memory = Number(displayValue.innerHTML);
+   
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)){
+    displayValue.innerHTML += "6";
+    memory = Number(displayValue.innerHTML);
+  }
+}
+
+const addSeven = function() {
+   if (mathOperator) {
+    displayValue.innerHTML = "7";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+  
+  } else if (displayValue.innerHTML === "0") {
+    displayValue.innerHTML = "7";
+    memory = Number(displayValue.innerHTML);
+  } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+   displayValue.innerHTML += "7";
+   memory = Number(displayValue.innerHTML);
+   
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)){
+    displayValue.innerHTML += "7";
+    memory = Number(displayValue.innerHTML);
+  }
+}
+
+const addEight = function() {
+   if (mathOperator) {
+    displayValue.innerHTML = "8";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+     
+  } else if (displayValue.innerHTML === "0") {
+    displayValue.innerHTML = "8";
+    memory = Number(displayValue.innerHTML);
+  } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+   displayValue.innerHTML += "8";
+    memory = Number(displayValue.innerHTML);
+   
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)){
+    displayValue.innerHTML += "8";
+    memory = Number(displayValue.innerHTML);
+  }
+}
+
+const addNine = function() {
+   if (mathOperator) {
+    displayValue.innerHTML = "9";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+     
+  } else if (displayValue.innerHTML === "0") {
+    displayValue.innerHTML = "9";
+   memory = Number(displayValue.innerHTML);
+    
+   
+  } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+   displayValue.innerHTML += "9";
+   memory = Number(displayValue.innerHTML);
+    
+   
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)){
+    displayValue.innerHTML += "9";
+    memory = Number(displayValue.innerHTML);
+    
+  }
+}
+
+
+const addZero = function() {
+ if (mathOperator) {
+   displayValue.innerHTML = "0";
+    memory = Number(displayValue.innerHTML);
+    mathOperator = false;
+ } else if (displayValue.innerHTML.length < 14 && /0[.]/g.test(displayValue.innerHTML)) {
+    displayValue.innerHTML += "0";
+    memory = Number(displayValue.innerHTML);
+  } else if (displayValue.innerHTML.length < 14 && /^[1-9]/g.test(displayValue.innerHTML)) {
+       displayValue.innerHTML += "0";
+    memory = Number(displayValue.innerHTML);   
+    }
+ 
+}
+
+const addDecimal = function() {
+ if (mathOperator) {
+   displayValue.innerHTML = "0.";
+   memory = Number(displayValue.innerHTML); 
+   mathOperator = false;
+ } else if (displayValue.innerHTML === "0") {
+   displayValue.innerHTML = "0.";
+   memory = Number(displayValue.innerHTML); 
+ }
+  else if (displayValue.innerHTML.length < 14) {
+     if (!/\./g.test(displayValue.innerHTML)) {
+       if (/^[1-9]/g.test(displayValue.innerHTML)) {
+         displayValue.innerHTML += ".";
+      memory = Number(displayValue.innerHTML);
+     }
+   }
+ }
+}
+
+const addition = function(){
+mathOperator = true;
+memoryArr.push(memory); 
+memory = 0;
+clickCount++;
+  
+let result = memoryArr[0];
+  for (let i = 1; i < memoryArr.length; i++){
+ result+=memoryArr[i];
+  displayValue.innerHTML = result;  
+currentValue = Number(displayValue.innerHTML); 
+  
+  
+}
+}
+
+const subtraction = function() {
+mathOperator = true;
+memoryArr.push(memory); 
+memory = 0;
+clickCount++;
+ 
+  let result = memoryArr[0];
+    for (let i = 1; i < memoryArr.length; i++) {
+      result-=memoryArr[i];
+      displayValue.innerHTML = result;
+      currentValue = Number(displayValue.innerHTML);
+      operatorValue = "-";
+  
+}
+}
+
+const equals = function () {
+  displayValue.innerHTML = currentValue + "";
+}
+
+
+/* event listeners for buttons */
+  onBtn.addEventListener("click", clear);
+  clearBtn.addEventListener("click", clear);
+  oneBtn.addEventListener("click", addOne);
+  twoBtn.addEventListener("click", addTwo);
+  threeBtn.addEventListener("click", addThree);
+  fourBtn.addEventListener("click", addFour);
+  fiveBtn.addEventListener("click", addFive);
+  sixBtn.addEventListener("click", addSix);
+  sevenBtn.addEventListener("click", addSeven);
+  eightBtn.addEventListener("click", addEight);
+  nineBtn.addEventListener("click", addNine);
+  zeroBtn.addEventListener("click", addZero);
+  decimalBtn.addEventListener("click", addDecimal);
+  plusBtn.addEventListener("click", addition);
+  minusBtn.addEventListener("click", subtraction);
+  equalBtn.addEventListener("click", equals);
+  
+  
+  
+  
+  
+  
+    });
